@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 import {
   FaChevronDown,
   FaInbox,
   FaRegCalendarAlt,
   FaRegCalendar,
-} from 'react-icons/fa';
-import { Projects } from '../Projects';
-import { useSelectedProjectValue } from '../../context';
-import { AddProject } from '../AddProject';
+} from 'react-icons/fa'
+import { Projects } from '../Projects'
+import { useSelectedProjectValue } from '../../context'
+import { AddProject } from '../AddProject'
 
 export const Sidebar = () => {
-  const { setSelectedProject } = useSelectedProjectValue();
-  const [active, setActive] = useState('inbox');
-  const [showProjects, setShowProjects] = useState(true);
+  const { setSelectedProject } = useSelectedProjectValue()
+  const [active, setActive] = useState('inbox')
+  const [showProjects, setShowProjects] = useState(true)
 
   return (
     <div className="sidebar" data-testid="sidebar">
@@ -27,13 +27,13 @@ export const Sidebar = () => {
             tabIndex={0}
             role="button"
             onClick={() => {
-              setActive('inbox');
-              setSelectedProject('INBOX');
+              setActive('inbox')
+              setSelectedProject('INBOX')
             }}
             onKeyDown={(e) => {
               if (e.key === 'Enter') {
-                setActive('inbox');
-                setSelectedProject('INBOX');
+                setActive('inbox')
+                setSelectedProject('INBOX')
               }
             }}
           >
@@ -53,13 +53,13 @@ export const Sidebar = () => {
             tabIndex={0}
             role="button"
             onClick={() => {
-              setActive('today');
-              setSelectedProject('TODAY');
+              setActive('today')
+              setSelectedProject('TODAY')
             }}
             onKeyDown={(e) => {
               if (e.key === 'Enter') {
-                setActive('today');
-                setSelectedProject('TODAY');
+                setActive('today')
+                setSelectedProject('TODAY')
               }
             }}
           >
@@ -79,13 +79,13 @@ export const Sidebar = () => {
             tabIndex={0}
             role="button"
             onClick={() => {
-              setActive('next_7');
-              setSelectedProject('NEXT_7');
+              setActive('next_7')
+              setSelectedProject('NEXT_7')
             }}
             onKeyDown={(e) => {
               if (e.key === 'Enter') {
-                setActive('next_7');
-                setSelectedProject('NEXT_7');
+                setActive('next_7')
+                setSelectedProject('NEXT_7')
               }
             }}
           >
@@ -101,7 +101,7 @@ export const Sidebar = () => {
         aria-label="Show/hide projects"
         onClick={() => setShowProjects(!showProjects)}
         onKeyDown={(e) => {
-          if (e.key === 'Enter') setShowProjects(!showProjects);
+          if (e.key === 'Enter') setShowProjects(!showProjects)
         }}
         role="button"
         tabIndex={0}
@@ -118,5 +118,5 @@ export const Sidebar = () => {
 
       {showProjects && <AddProject />}
     </div>
-  );
-};
+  )
+}

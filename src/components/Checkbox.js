@@ -1,13 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { firebase } from '../firebase';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { firebase } from '../firebase'
 
 export const Checkbox = ({ id, taskDesc }) => {
   const archiveTask = () => {
     firebase.firestore().collection('tasks').doc(id).update({
       archived: true,
-    });
-  };
+    })
+  }
 
   return (
     <div
@@ -15,7 +15,7 @@ export const Checkbox = ({ id, taskDesc }) => {
       data-testid="checkbox-action"
       onClick={() => archiveTask()}
       onKeyDown={(e) => {
-        if (e.key === 'Enter') archiveTask();
+        if (e.key === 'Enter') archiveTask()
       }}
       aria-label={`Mark ${taskDesc} as done?`}
       role="button"
@@ -23,10 +23,10 @@ export const Checkbox = ({ id, taskDesc }) => {
     >
       <span className="checkbox" />
     </div>
-  );
-};
+  )
+}
 
 Checkbox.propTypes = {
   id: PropTypes.string.isRequired,
   taskDesc: PropTypes.string.isRequired,
-};
+}
