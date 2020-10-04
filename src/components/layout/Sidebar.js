@@ -13,6 +13,8 @@ export const Sidebar = () => {
   const { setSelectedProject } = useSelectedProjectValue()
   const [active, setActive] = useState('inbox')
   const [showProjects, setShowProjects] = useState(true)
+  console.log({ active })
+  console.log({ showProjects })
 
   return (
     <div className="sidebar" data-testid="sidebar">

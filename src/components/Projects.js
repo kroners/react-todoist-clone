@@ -7,6 +7,7 @@ export const Projects = ({ activeValue = null }) => {
   const [active, setActive] = useState(activeValue)
   const { setSelectedProject } = useSelectedProjectValue()
   const { projects } = useProjectsValue()
+  console.log({ projects })
 
   return (
     projects &&

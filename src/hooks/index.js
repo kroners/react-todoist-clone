@@ -5,6 +5,7 @@ import { firebase } from '../firebase'
 import { collatedTasksExist } from '../helpers'
 
 export const useTasks = (selectedProject) => {
+  console.log({ selectedProject })
   const [tasks, setTasks] = useState([])
   const [archivedTasks, setArchivedTasks] = useState([])
 
@@ -12,7 +13,7 @@ export const useTasks = (selectedProject) => {
     let unsubscribe = firebase
       .firestore()
       .collection('tasks')
-      .where('userId', '==', 'jlIFXIwyAL3tzHMtzRbw')
+      .where('userId', '==', 'pI6S0YxcVYY2GDVN5sY2')
 
     unsubscribe =
       selectedProject && !collatedTasksExist(selectedProject)
@@ -53,15 +54,17 @@ export const useTasks = (selectedProject) => {
 
 export const useProjects = () => {
   const [projects, setProjects] = useState([])
+  console.log({ hooksProjects: projects })
 
   useEffect(() => {
     firebase
       .firestore()
       .collection('projects')
-      .where('userId', '==', 'jlIFXIwyAL3tzHMtzRbw')
+      .where('userId', '==', 'pI6S0YxcVYY2GDVN5sY2')
       .orderBy('projectId')
       .get()
       .then((snapshot) => {
+        console.log({ snapshot })
         const allProjects = snapshot.docs.map((project) => ({
           ...project.data(),
           docId: project.id,
